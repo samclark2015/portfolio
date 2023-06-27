@@ -1,0 +1,11 @@
+{
+    "schemaVersion": "2",
+    "dockerfileLines": [
+        "FROM klakegg/hugo",
+        "COPY . /src",
+        "WORKDIR /src",
+        "RUN ['hugo']",
+        "FROM nginx:alpine",
+        "COPY --from=0 /src/public /usr/share/nginx/html"
+    ]
+}
