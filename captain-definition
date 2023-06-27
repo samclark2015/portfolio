@@ -1,11 +1,8 @@
 {
     "schemaVersion": 2,
     "dockerfileLines": [
-        "FROM klakegg/hugo",
-        "COPY . /src",
-        "WORKDIR /src",
-        "RUN ['hugo']",
-        "FROM nginx:alpine",
-        "COPY --from=0 /src/public /usr/share/nginx/html"
+        "FROM klakegg/hugo:0.101.0-onbuild AS hugo",
+        "FROM nginx",
+        "COPY --from=hugo /target /usr/share/nginx/html"
     ]
 }
