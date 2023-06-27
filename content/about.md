@@ -1,6 +1,6 @@
-+++
-title = "About"
-+++
+---
+title: "About"
+---
 
 Hi there, I’m Sam. I’m an applications analyst for the Collider-Accelerator Department at Brookhaven National Laboratory on Long Island, New York. I work to develop intuitive human interfaces for three large-scale particle accelerators, and provide support for physicians, technicians, & users of these machines. I’m currently living in Chicagoland with my partner of four years, John, and our rapidly growing assortment of houseplants.
 
