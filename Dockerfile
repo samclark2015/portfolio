@@ -1,9 +1,11 @@
 FROM alpine:latest as build
 
-RUN apk add --update hugo
+RUN apk add --update hugo git 
     
 COPY ./ /site
 WORKDIR /site
+
+RUN git submodule update --init --recursive
 RUN hugo
 
 #Copy static files to Nginx
