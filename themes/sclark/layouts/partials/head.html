@@ -1,0 +1,7 @@
+<meta charset="utf-8">
+{{ $style := resources.Get "styles.css" }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+<title>{{ block "title" . }}
+    {{ .Site.Title }}
+    {{ end }}
+</title>

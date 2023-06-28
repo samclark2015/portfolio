@@ -45,4 +45,8 @@
     .content pre code {
         @apply bg-transparent;
     }
+
+    .content p {
+        @apply mb-4 text-lg leading-loose text-justify;
+    }
 }
