@@ -1,9 +1,10 @@
 baseurl = "https://samclark.me"
 title = "Sam Clark"
 # theme = "hugo-coder"
-theme = "sclark"
+theme = ["hugo-embed-pdf-shortcode", "sclark"]
 languagecode = "en"
 defaultcontentlanguage = "en"
+enableInlineShortcodes = true
 
 paginate = 20
 

@@ -2,6 +2,17 @@
 
     <head>
         {{partial "partials/head.html" .}}
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/css/styles.css">
+        <title>
+        {{ block "title" .}}
+            {{if .Page.Title }}
+            {{.Page.Title}} &ndash; {{.Site.Title}}
+            {{else}}
+                {{ .Site.Title }}
+            {{end}}
+        {{end}}
+        </title>
     </head>
 
     <body>

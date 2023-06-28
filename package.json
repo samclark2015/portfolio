@@ -1,0 +1,14 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "tailwindcss -w -i themes/sclark/main.css -o themes/sclark/static/css/styles.css",
+    "compile": "tailwindcss -i themes/sclark/main.css -o themes/sclark/static/css/styles.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}

@@ -1,15 +1,22 @@
 {{ define "main" }}
 
+{{$class := cond (isset .Page.Params "subtitle") "mb-2" "mb-4"}}
 {{if .Content }}
     <div class="mb-4">
-        <h1 class="font-bold text-4xl mb-4">{{.Title}}</h1>
+        <h1 class="font-bold text-4xl {{$class}}">{{.Title}}</h1>
+        {{ if isset .Page.Params "subtitle" }}
+        <h2 class="text-xl mb-4">{{.Page.Params.subtitle}}</h2>
+        {{ end }}
         <article class="content">
             {{.Content}}
         </article>
     </div>
 {{else}}
     <div class="mb-4">
-        <h1 class="font-bold text-4xl mb-4 text-center">{{.Title}}</h1>
+        <h1 class="font-bold text-4xl text-center {{$class}}">{{.Title}}</h1>
+        {{ if isset .Page.Params "subtitle" }}
+        <h2 class="text-xl mb-4 text-center font-light">{{.Page.Params.subtitle}}</h2>
+        {{ end }}
     </div>
 {{end}}
 
