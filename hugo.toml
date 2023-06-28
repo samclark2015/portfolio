@@ -1,6 +1,7 @@
 baseurl = "https://samclark.me"
 title = "Sam Clark"
-theme = "hugo-coder"
+# theme = "hugo-coder"
+theme = "sclark"
 languagecode = "en"
 defaultcontentlanguage = "en"
 
@@ -57,9 +58,9 @@ style = "github-dark"
 [[menu.main]]
   name = "About"
   weight = 1
-  url = "about/"
+  url = "/about"
 
 [[menu.main]]
   name = "Projects"
   weight = 2
-  url = "projects/"
+  url = "/projects"
