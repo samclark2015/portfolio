@@ -1,17 +1,24 @@
 {{ define "main" }}
 
-<div class="mb-4">
-    <h1 class="font-bold text-4xl mb-4">{{.Title}}</h1>
-    <article class="content">
-        {{.Content}}
-    </article>
-</div>
+{{if .Content }}
+    <div class="mb-4">
+        <h1 class="font-bold text-4xl mb-4">{{.Title}}</h1>
+        <article class="content">
+            {{.Content}}
+        </article>
+    </div>
+{{else}}
+    <div class="mb-4">
+        <h1 class="font-bold text-4xl mb-4 text-center">{{.Title}}</h1>
+    </div>
+{{end}}
 
 {{ range .Pages }}
 <a href="{{ .Permalink }}"
-    class="flex flex-row space-x-2 justify-center hover:bg-slate-100 hover:underline py-2 border-b">
-    <span class="font-semibold">{{.Date.Format "January 2, 2006"}}</span>
-    <span>{{.Name}}</span>
+    class="flex flex-row space-x-4 justify-center hover:bg-slate-100 hover:underline py-2 border-b">
+    <span class="font-semibold flex-1 text-right">{{.Date.Format "January 2, 2006"}}</span>
+    <span class="flex-1">{{.Name}}</span>
 </a>
 {{ end }}
+
 {{ end }}

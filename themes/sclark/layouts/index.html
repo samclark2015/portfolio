@@ -1,4 +1,16 @@
+{{ define "title" }}
+    {{.Site.Title}}
+{{end}}
+
 {{ define "main" }}
+
+{{if isset .Site.Params "avatarurl"}}
+    {{ $avatar := resources.Get .Site.Params.avatarurl }}
+    {{ $avatar := $avatar.Resize "250x250" }}
+
+    <img src="{{$avatar.RelPermalink}}" class="rounded-full ring ring-slate-200 shadow-lg mx-auto mb-4"/>
+{{end}}
+
 <h1 class="font-bold text-4xl mb-4">{{.Title}}</h1>
 <article class="content">
     {{.Content}}

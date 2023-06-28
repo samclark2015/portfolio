@@ -53,14 +53,3 @@ style = "github-dark"
   icon = "fa fa-twitter fa-2x"
   weight = 3
   url = "https://twitter.com/samclark2015/"
-
-# Menu links
-[[menu.main]]
-  name = "Projects"
-  weight = 2
-  url = "projects/"
-
-[[menu.main]]
-  name = "Recipes"
-  weight = 3
-  url = "recipes/"

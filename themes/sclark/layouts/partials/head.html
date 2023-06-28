@@ -1,7 +1,11 @@
 <meta charset="utf-8">
-{{ $style := resources.Get "styles.css" }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
-<title>{{ block "title" . }}
+<link rel="stylesheet" href="/css/styles.css">
+<title>
+    {{ block "title" .}}
+    {{if .Page.Title }}
+    {{.Page.Title}} &mdash; {{.Site.Title}}
+    {{else}}
     {{ .Site.Title }}
-    {{ end }}
+    {{end}}
+    {{end}}
 </title>
