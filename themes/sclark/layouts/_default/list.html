@@ -21,7 +21,7 @@
 {{end}}
 
 {{ range .Pages }}
-<a href="{{ .Permalink }}"
+<a href="{{ .RelPermalink }}"
     class="flex flex-row space-x-4 justify-center hover:bg-slate-100 hover:underline py-2 border-b">
     <span class="font-semibold flex-1 text-right">{{.Date.Format "January 2, 2006"}}</span>
     <span class="flex-1">{{.Name}}</span>
