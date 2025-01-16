@@ -8,5 +8,12 @@
             {{ .Name }}
         </a>
         {{- end }}
+
+        {{- range site.Params.social }}
+        <a href="{{ .url }}" class="hover:text-slate-900 flex items-center">
+            <!-- {{ .name }} -->
+              <span class="{{ .icon }}" title="{{ .name }}"></span>
+        </a>
+        {{- end }}
     </div>
 </div>

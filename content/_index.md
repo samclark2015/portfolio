@@ -2,7 +2,7 @@
 title: "Intro"
 ---
 
-Hi there, I’m Sam. I’m a software engineer at Brookhaven National Laboratory's Relativistic Heavy Ion Collider on Long Island, New York. I work to develop intuitive human interfaces for three large-scale particle accelerators, and provide support for physicists, technicians, & users of these machines. I’m currently living outside of Chicago with my fiance and our rapidly growing assortment of houseplants.
+Hi there, I’m Sam. I work as a Software Engineer at [Posit](https://posit.co). I joined my team in January 2025 to help develop [Positron](https://positron.posit.co/), a new IDE designed specifically for data scientists. Before this, I designed software for the Relativistic Heavy Ion Collider at Brookhaven National Laboratory. I’m currently living just outside Chicago with my fiancé and our rapidly growing assortment of houseplants.
 
 I graduated from Stony Brook University with my Bachelor’s of Science in Computer Science in 2019. While there, I put a focus on Artificial Intelligence and Machine Learning, taking courses covering the theory and application of the fields. Starting in the fall of 2021, I began working towards a Master’s of Science in Computer Science at Georgia Institute of Technology with a specialization in Computing Systems. I graduated from that program in December 2023, after two years of hard work - it was almost its own full-time job. 
 
