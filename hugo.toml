@@ -6,7 +6,8 @@ languagecode = "en"
 defaultcontentlanguage = "en"
 enableInlineShortcodes = true
 
-paginate = 20
+[pagination]
+  pagerSize = 20
 
 [markup.highlight]
 style = "github-dark"
