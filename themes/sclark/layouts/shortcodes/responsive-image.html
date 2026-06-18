@@ -1,0 +1,36 @@
+{{/*
+  responsive-image: emits a square, lazy-loaded <img> with a WebP srcset.
+
+  Params:
+    src   (required) path under assets/ (e.g. "images/missy.jpg")
+    alt   (required) alt text
+    class (optional) extra CSS classes
+    style (optional) inline style
+    sizes (optional) sizes attribute (default: "(max-width: 640px) 45vw, 300px")
+*/}}
+{{- $src   := .Get "src" -}}
+{{- $alt   := .Get "alt" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $style := .Get "style" | default "" -}}
+{{- $sizes := .Get "sizes" | default "(max-width: 640px) 45vw, 300px" -}}
+
+{{- $img := resources.Get $src -}}
+{{- if not $img -}}
+  {{ errorf "responsive-image: asset %q not found" $src }}
+{{- end -}}
+
+{{- $w1 := $img.Fill "400x400 webp q80 Center" -}}
+{{- $w2 := $img.Fill "800x800 webp q80 Center" -}}
+{{- $w3 := $img.Fill "1200x1200 webp q80 Center" -}}
+
+<img
+  src="{{ $w2.RelPermalink }}"
+  srcset="{{ $w1.RelPermalink }} 400w, {{ $w2.RelPermalink }} 800w, {{ $w3.RelPermalink }} 1200w"
+  sizes="{{ $sizes }}"
+  width="{{ $w2.Width }}"
+  height="{{ $w2.Height }}"
+  alt="{{ $alt }}"
+  loading="lazy"
+  decoding="async"
+  {{ with $class }}class="{{ . }}"{{ end }}
+  {{ with $style }}style="{{ . | safeCSS }}"{{ end }} />

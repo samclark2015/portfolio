@@ -10,11 +10,11 @@ Outside of my career, I have an immense love of cooking. Food has always been a 
 
 <div style="display: flex; justify-content: center; gap: 1rem; margin: 1rem 0;">
   <figure style="margin: 0; width: 33%;">
-    <img src="/images/missy.jpg" alt="Missy" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+    {{< responsive-image src="images/missy.jpg" alt="Missy" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" >}}
     <figcaption style="text-align: center; font-size: 0.875rem; margin-top: 0.25rem;">Missy</figcaption>
   </figure>
   <figure style="margin: 0; width: 33%;">
-    <img src="/images/mabel.jpg" alt="Mabel" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"/>
+    {{< responsive-image src="images/mabel.jpg" alt="Mabel" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 0.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" >}}
     <figcaption style="text-align: center; font-size: 0.875rem; margin-top: 0.25rem;">Mabel</figcaption>
   </figure>
 </div>
