@@ -12,6 +12,9 @@ enableInlineShortcodes = true
 [markup.highlight]
 style = "github-dark"
 
+[markup.goldmark.renderer]
+unsafe = true
+
 [params]
   author = "Sam Clark"
   info = "Software Engineer"
