@@ -21,7 +21,6 @@ unsafe = true
   description = "Sam Clark's personal website"
   keywords = "blog,developer,personal"
   avatarurl = "images/profile.jpg"
-  #gravatar = "john.doe@example.com"
 
   favicon_32 = "/img/favicon-32x32.png"
 
@@ -31,10 +30,6 @@ unsafe = true
 
   colorScheme = "auto"
   hidecolorschemetoggle = false
-
-  # customCSS = ["css/custom.css"]
-  # customSCSS = ["scss/custom.scss"]
-  # customJS = ["js/custom.js"]
 
 [taxonomies]
   category = "categories"
@@ -53,3 +48,10 @@ unsafe = true
   icon = "fa fa-linkedin fa-lg"
   weight = 2
   url = "https://www.linkedin.com/in/sam-clark-a25075115/"
+
+
+[[menu.main]]
+  name = "Recipes"
+  url = "https://neighborlybakes.com"
+  [menu.main.params]
+    rel = 'external'

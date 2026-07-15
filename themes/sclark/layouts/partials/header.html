@@ -4,7 +4,7 @@
     </div>
     <div class="flex flex-row space-x-3">
         {{- range site.Menus.main }}
-        <a href="{{ .URL }}" class="hover:text-slate-900">
+        <a href="{{ .URL }}" {{ if eq .Params.rel "external" }} target="_blank"{{ end }} class="hover:text-slate-900">
             {{ .Name }}
         </a>
         {{- end }}
