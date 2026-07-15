@@ -1,0 +1,125 @@
+{{ $flickrId := .Get "id" }}
+{{ $albumId := .Get "album" }}
+{{ $gridId := printf "flickr-grid-%s" ($flickrId | urlize | replaceRE "[^a-z0-9-]" "") }}
+
+<div id="{{ $gridId }}" data-flickr-id="{{ $flickrId }}"{{ with $albumId }} data-album-id="{{ . }}"{{ end }} class="flickr-grid"></div>
+
+<style>
+  .flickr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 10px;
+  }
+  .flickr-grid a {
+    display: block;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  .flickr-grid a:hover {
+    transform: scale(1.03);
+  }
+  .flickr-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .flickr-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 33%;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.72));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8px 10px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    color: #fff;
+    pointer-events: none;
+  }
+  .flickr-grid a:hover .flickr-overlay {
+    opacity: 1;
+  }
+  .flickr-overlay-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.3;
+  }
+  .flickr-overlay-desc {
+    font-size: 0.7rem;
+    opacity: 0.85;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+</style>
+
+<script>
+  (function() {
+    const grid = document.getElementById('{{ $gridId }}');
+    const flickrId = grid.dataset.flickrId;
+    const callbackName = 'flickrCb_{{ $gridId | replaceRE "-" "_" }}';
+
+    window[callbackName] = function(data) {
+      data.items.forEach(function(item) {
+        const link = document.createElement('a');
+        link.href = item.link;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+
+        const img = document.createElement('img');
+        img.src = item.media.m.replace('_m.', '_b.');
+        img.alt = item.title;
+
+        const tmp = document.createElement('div');
+        tmp.innerHTML = item.description;
+        const paras = tmp.querySelectorAll('p');
+        const caption = paras.length ? paras[paras.length - 1].textContent.trim() : '';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'flickr-overlay';
+
+        const titleEl = document.createElement('span');
+        titleEl.className = 'flickr-overlay-title';
+        titleEl.textContent = item.title;
+        overlay.appendChild(titleEl);
+
+        if (caption) {
+          const descEl = document.createElement('span');
+          descEl.className = 'flickr-overlay-desc';
+          descEl.textContent = caption;
+          overlay.appendChild(descEl);
+        }
+
+        link.appendChild(img);
+        link.appendChild(overlay);
+        grid.appendChild(link);
+      });
+      delete window[callbackName];
+      script.parentNode && script.parentNode.removeChild(script);
+    };
+
+    const albumId = grid.dataset.albumId;
+    const feedUrl = albumId
+      ? 'https://www.flickr.com/services/feeds/photoset.gne?set=' + albumId + '&nsid=' + flickrId + '&format=json&jsoncallback=' + callbackName
+      : 'https://www.flickr.com/services/feeds/photos_public.gne?id=' + flickrId + '&format=json&jsoncallback=' + callbackName;
+
+    const script = document.createElement('script');
+    script.src = feedUrl;
+    script.onerror = function() { console.error('Error loading Flickr feed'); };
+    document.head.appendChild(script);
+  })();
+</script>
